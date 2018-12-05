@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('/questions', 'QuestionsController@index');
 Route::get('questions/create', 'QuestionsController@create')->name('create');
+Route::post('questions/store', 'QuestionsController@store')->name('store');

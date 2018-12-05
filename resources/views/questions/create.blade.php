@@ -13,10 +13,11 @@
   <body>
     <center><h1>Answer the following questions</h1></center>
     <div class="container">
-    <form action="" class="form" id="quiz_form">
+    <form method="POST" action="{{ route('store') }}" class="form" id="quiz_form">
+        {{ csrf_field() }}
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Question</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="name" rows="3"></textarea>
         </div>
 
     <!-- option 1 -->
@@ -24,7 +25,7 @@
             <div class="col-md-8">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Option 1</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="colFormLabel" placeholder="Option 1">
+                    <input type="text" class="form-control" id="colFormLabel" name="option1" placeholder="Option 1">
                 </div>
             </div>
         </div>
@@ -34,7 +35,7 @@
             <div class="col-md-8">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Option 2</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="colFormLabel" placeholder="Option 2">
+                        <input type="text" class="form-control" id="colFormLabel" name="option2" placeholder="Option 2">
                     </div>
                 </div>
         </div>
@@ -44,13 +45,12 @@
             <div class="col-md-8">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Correct option</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="colFormLabel" placeholder="Correct Option">
+                        <input type="text" class="form-control" id="colFormLabel" name="correctoption" placeholder="Correct Option">
                     </div>
                 </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>  
     
     </form>
     </div>
