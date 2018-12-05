@@ -10,7 +10,7 @@ class QuestionsController extends Controller
 {
     public function index()
     {
-        $questions = Question::orderBy('created_at', 'DESC');
+        $questions = Question::orderBy('created_at', 'ASC')->get();
         return view('questions.index', compact('questions'));
     }
 
@@ -21,33 +21,29 @@ class QuestionsController extends Controller
 
     public function store(Request $request) 
     {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|unique |max:255'
-        // ]);
-
         $question = new Question;
         $question->name = $request->name;
         $question->save();
 
         $option = new Option;
         $option->text = $request->option1;
-        $option->question_id = $question->id;
+        $option->questions_id = $question->id;
         $option->correct = '0';
         $option->save();
 
         $option = new Option;
         $option->text = $request->option2;
-        $option->question_id = $question->id;
+        $option->questions_id = $question->id;
         $option->correct = '0';
         $option->save();
 
         $option = new Option;
-        $option->text = $request->option3;
-        $option->question_id = $question->id;
+        $option->text = $request->correctoption;
+        $option->questions_id = $question->id;
         $option->correct = '1';
         $option->save();
 
-        return redirect('questions.index');
+        return redirect()->route('index');
     
     }
 }

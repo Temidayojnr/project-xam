@@ -13,10 +13,17 @@
   <body>
 
         <div class="header">
-            <center><h2>Quiz board</h2></center>
+        <br>
+            <center><h2>LMS Quiz board</h2></center>
         </div>
 
-        <hr>
+        <br>
+        
+        <div class="container">
+        <a href="/questions/create" class="btn btn-primary">Add New question</a>
+        </div>
+
+        <br>
 
         <div class="container">
             <div class="question-table">
@@ -37,7 +44,7 @@
                     <th scope="row">{{ $question->id }}</th>
                     <td>{{ $question->name }}</td>
                     <td>
-                        <a href="#"><button type="edit" class="btn btn-primary">Edit</button></a>
+                        <a href="#"><button type="edit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button></a>
                         <a href="#"><button type="delete" class="btn btn-danger">Delete</button></a>
                     </td>
                     </tr>
@@ -46,6 +53,66 @@
             </div>
         </div>
 </table>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Question</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="form-edit">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Question</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="name" value="" rows="3"></textarea>
+        </div>
+
+            <!-- option 1 -->
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Option 1</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="colFormLabel" name="option1" value="" placeholder="Option 1">
+                        </div>
+                    </div>
+                </div>
+
+            <!-- option 2 -->
+                <div class="form-group">
+                    <div class="col-md-8">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Option 2</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="colFormLabel" name="option2" value=""  placeholder="Option 2">
+                            </div>
+                        </div>
+                </div>
+
+            <!-- option 3 -->
+                <div class="form-group">
+                    <div class="col-md-8">
+                            <label for="colFormLabel" class="col-sm-2 col-form-label">Correct option</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="colFormLabel" name="correctoption" value="" placeholder="Correct Option">
+                            </div>
+                        </div>
+                </div>
+                </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/questions', 'QuestionsController@index');
+Route::get('/questions', 'QuestionsController@index')->name('index');
+
 Route::get('questions/create', 'QuestionsController@create')->name('create');
+
 Route::post('questions/store', 'QuestionsController@store')->name('store');
+
+Route::put('/questions/{id}', 'QuestionsController@update')->name('updateq');
+
+Route::delete('/questions/{id}', 'QuestionsController@destroy')->name('delete');

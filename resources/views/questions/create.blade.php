@@ -11,7 +11,15 @@
     <title>LMS course Quiz</title>
   </head>
   <body>
+
+    <br>
     <center><h1>Answer the following questions</h1></center>
+    <br>
+
+     <div class="container">
+        <a href="/questions" class="btn btn-info">Back</a>
+    </div>
+
     <div class="container">
     <form method="POST" action="{{ route('store') }}" class="form" id="quiz_form">
         {{ csrf_field() }}
@@ -25,7 +33,7 @@
             <div class="col-md-8">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Option 1</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="colFormLabel" name="option1" placeholder="Option 1">
+                    <input type="text" class="form-control" id="colFormLabel" name="option1"  placeholder="Option 1">
                 </div>
             </div>
         </div>
