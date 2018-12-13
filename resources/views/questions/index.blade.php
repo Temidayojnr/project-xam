@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,6 +27,8 @@
          <a href="/questions/create" class="btn btn-primary">Add New question</a>
 
           <a href="/quiz" class="btn btn-primary">Take the quiz</a>
+
+          <a href="#" class="btn btn-primary">User Records</a>
         </div>
 
         <br>
@@ -168,3 +173,6 @@
     </script>
   </body>
 </html>
+
+
+@endsection

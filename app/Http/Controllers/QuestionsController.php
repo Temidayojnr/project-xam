@@ -46,34 +46,34 @@ class QuestionsController extends Controller
         return redirect()->route('index');
     }
 
-    public function update()
-    {
-        $question = Question::find($id);
+    // public function update()
+    // {
+    //     $question = Question::find($id);
 
-        $option = Option::find($id);
+    //     $option = Option::find($id);
 
-        $question = new Question;
-        $question->name = $request->name;
-        $question->save();
+    //     $question = new Question;
+    //     $question->name = $request->name;
+    //     $question->save();
 
 
-        //Rework the options method(IMPORTANT!!!!!!!).
-        $option = new Option;
-        $option->text = $request->option1;
-        $option->text = $request->option2;
-        $option->text = $request->correctoption;
-        $option->questions_id = $question->id;
-        $option->correct = '0';
-        $option->save();
+    //     //Rework the options method(IMPORTANT!!!!!!!).
+    //     $option = new Option;
+    //     $option->text = $request->option1;
+    //     $option->text = $request->option2;
+    //     $option->text = $request->correctoption;
+    //     $option->questions_id = $question->id;
+    //     $option->correct = '0';
+    //     $option->save();
 
-        $option = new Option;
-        $option->text = $request->correctoption;
-        // $option->questions_id = $question- >id;
-        $option->correct = '1';
-        $option->save();
+    //     $option = new Option;
+    //     $option->text = $request->correctoption;
+    //     // $option->questions_id = $question- >id;
+    //     $option->correct = '1';
+    //     $option->save();
 
-        return view('questions.edit', compact('question'));
-    }
+    //     return view('questions.edit', compact('question'));
+    // }
 
     public function destroy($id)
     {
@@ -99,9 +99,13 @@ class QuestionsController extends Controller
         return view('quiz.index', compact('questions', 'options'));
     }
 
-    public function show_quiz(Request $request)
+    public function submit_quiz(Request $request)
     {
         
-        return view('quiz.index', compact('questions', 'options'));
+    }
+
+    public function store_records(Request $request)
+    {
+        return view('questions.record');
     }
 }

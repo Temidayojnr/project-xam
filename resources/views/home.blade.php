@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
+
+                    <div class="container">
+                        <a href="/questions" class="btn btn-primary">Quiz board</a>
+                    </div>
                     You are logged in!
+
                 </div>
             </div>
         </div>
