@@ -23,4 +23,13 @@ Route::post('questions/store', 'QuestionsController@store')->name('store');
 
 Route::put('/questions/{id}', 'QuestionsController@update')->name('updateq');
 
-Route::delete('/questions/{id}', 'QuestionsController@destroy')->name('delete');
+Route::get('/questions/{id}', 'QuestionsController@destroy')->name('delete');
+
+Route::post('/test', 'QuestionsController@test');
+
+Route::get('quiz', 'QuestionsController@quizes')->name('quiz');
+
+Route::get('show_quiz', 'QuestionsController@show_quiz')->name('showquiz');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

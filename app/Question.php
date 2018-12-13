@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    public function option(){
+    public function options(){
 
-        return $this->hasMany('App\Option');
+        return $this->hasMany('App\Option', 'questions_id');
     }
 }
