@@ -99,13 +99,20 @@ class QuestionsController extends Controller
         return view('quiz.index', compact('questions', 'options'));
     }
 
-    public function submit_quiz(Request $request)
+    public function submit_record(Request $request)
     {
         
     }
 
     public function store_records(Request $request)
     {
+        return view('questions.record');
+    }
+
+    public function show_records(Request $request)
+    {
+        $record = Record::find($id);
+        $recrod = Record::where('id', $request->id)->with('questions', 'options');
         return view('questions.record');
     }
 }

@@ -12,12 +12,26 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    {{-- Font awesome cdn --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <title>Questions</title>
   </head>
   <body>
 
         <div class="header">
         <br>
+             <div class="container">
+                @if (\Session::has('success'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li>{!! \Session::get('success') !!}</li>
+                    </ul>
+                </div>
+             </div>
+         @endif
+             <br>
             <center><h2>LMS Quiz board</h2></center>
         </div>
 
@@ -28,7 +42,7 @@
 
           <a href="/quiz" class="btn btn-primary">Take the quiz</a>
 
-          <a href="#" class="btn btn-primary">User Records</a>
+          <a href="/questions/record" class="btn btn-primary"><i class="fas fa-info-circle"></i> User Records</a>
         </div>
 
         <br>
@@ -53,8 +67,8 @@
                     <th scope="row">{{ $count }}</th>
                     <td>{{ $question->name }}</td>
                     <td>
-                        <a href="#" type="edit" class="btn btn-primary toggler"  data-ref="{{ $question->id }}"  >Edit</a>
-                        <a href="{{ route('delete', $question->id) }}"><button type="delete" class="btn btn-danger">Delete</button></a>
+                        <a href="#" type="edit" class="btn btn-primary toggler"  data-ref="{{ $question->id }}"><i class="fa fa-edit"></i>Edit</a>
+                        <a href="{{ route('delete', $question->id) }}"><button type="delete" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button></a>
                     </td>
                     </tr>
                 @endforeach
